@@ -9,15 +9,13 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Home",
-  data(){
-    return{
-    }
-  },
   components: {
     },
     methods: {
       gotoarticle(id:number){
-        this.$store.state.currentindex = id
+        console.log(id);
+        
+        this[`$store`].state.currentindex = id
         this.$router.push("/about");
       }
     }
