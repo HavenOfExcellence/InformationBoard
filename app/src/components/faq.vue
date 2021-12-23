@@ -1,92 +1,174 @@
 <template>
-  <div class="">
-      <vue-simple-markdown source="asdasd"></vue-simple-markdown>
-      <!-- <h3>{{this.data}}</h3> -->
-  </div>
+  <p class="w-full prose max-w-none prose-indigo leading-6 rounded-b-md shadow-sm border border-gray-300 p-5 bg-white overflow-y-auto">
+    <vue3-markdown-it class="" :source='source' />
+  </p>
 </template>
 
 <script>
-export default {
-    name:"faq",
-    data(){
-        return{
-            markdown:markdowndata
-        }
-    },
-}
-// }
+import VueMarkdownIt from 'vue3-markdown-it';
+const data = `# :sparkles: vue3-markdown-it demo :sparkles:
 
+> Welcome to the <b>demo</b> Feel free to type anything in the textarea!
+> > *Psst, enable the  option!* :P
 
-const markdowndata = `# Markdown syntax guide
+https://github.com/JanGuillermo/vue3-markdown-it (*Enable the option!~*)
 
-## Headers
+___
 
-# This is a Heading h1
-## This is a Heading h2 
-###### This is a Heading h6
+# This is a h1 tag
+## This is a h2 tag
+### This is a h3 tag
+#### This is a h4 tag
+##### This is a h5 tag
+###### This is a h6 tag
 
-## Emphasis
+Freaky, right? Oh yeah, have you seen this ~~horrible~~ **amazing** repository [here](https://github.com/JanGuillermo/vue3-markdown-it)?!
 
-*This text will be italic*  
-_This will also be italic_
+So far, it supports the following plugins:
+- [markdown-it-abbr](https://github.com/markdown-it/markdown-it-abbr) - Add abbreviations
+- [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor) - Add anchors
+- [markdown-it-deflist](https://github.com/markdown-it/markdown-it-deflist) - Add definition lists
+- [markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji) - Add emojis
+- [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote) - Add footnotes
+- [markdown-it-highlightjs](https://github.com/valeriangalliat/markdown-it-highlightjs) - Add highlighting for code blocks
+- [markdown-it-ins](https://github.com/markdown-it/markdown-it-ins) - Add  tags
+- [markdown-it-mark](https://github.com/markdown-it/markdown-it-mark) - Add marking/highlighting
+- [markdown-it-sub](https://github.com/markdown-it/markdown-it-sub) - Add subscript
+- [markdown-it-sup](https://github.com/markdown-it/markdown-it-sup) - Add superscript
+- [markdown-it-task-lists](https://github.com/revin/markdown-it-task-lists) - Add task lists
+- [markdown-it-toc-done-right](https://github.com/nagaozen/markdown-it-toc-done-right) - Add table of contents
 
-**This text will be bold**  
-__This will also be bold__
+### This is a h3 tag
 
-_You **can** combine them_
+#### This is a h^4^ tag.
+
+Enable the option to see the magic.
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+---
+
+## Basic stuff
 
 ## Lists
 
-### Unordered
+Sometimes you want numbered lists:
 
-* Item 1
-* Item 2
-* Item 2a
-* Item 2b
+1. One
+2. Two
+3. Three
 
-### Ordered
+Sometimes you want bullet points:
 
-1. Item 1
-1. Item 2
-1. Item 3
-  1. Item 3a
-  1. Item 3b
+* Start a line with a star
+* Profit!
 
-## Images
+Alternatively,
 
-![This is a alt text.](/image/sample.png "This is a sample image.")
-
-## Links
-
-You may be using [Markdown Live Preview](https://markdownlivepreview.com/).
+- Dashes work just as well
+- And if you have sub points, put two spaces before the dash or star:
+  - Like this
+  - And this
 
 ## Blockquotes
 
-> Markdown is a lightweight markup language with plain-text-formatting syntax, created in 2004 by John Gruber with Aaron Swartz.
->
->> Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
+As Abraham Lincoln once said:
+
+> vue3-markdown-it is pretty amazing!
 
 ## Tables
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
 
-| Left columns  | Right columns |
-| ------------- |:-------------:|
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
+---
 
-## Blocks of code
+# Anyway, guess what?!
+
+![pog](https://cdn.frankerfacez.com/emoticon/305343/4)
+
+We support plugging in external plugins! [markdown-it-icons](https://github.com/tylingsoft/markdown-it-icons) was added as an external plugin. Let's test it out!
+
+A :fa-car: runs!
+
+# Ok, plugin showcase time!
+
+## [markdown-it-abbr](https://github.com/markdown-it/markdown-it-abbr)
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]:  World Wide Web Consortium
+The HTML specification
+is maintained by the W3C.
+
+## [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
+
+Hard to display this, but if you view the source, you can see that all headings have an id generated from this plugin!
+
+## [markdown-it-deflist](https://github.com/markdown-it/markdown-it-deflist)
+
+First Term
+: This is the definition of the first term.
+
+Second Term
+: This is one definition of the second term.
+: This is another definition of the second term.
+
+## [markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)
+
+:O :) :sparkles: 8-)
+
+## [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote)
+
+Here is a footnote reference,[^1] and another.[^longnote]
+
+## [markdown-it-highlightjs](https://github.com/valeriangalliat/markdown-it-highlightjs)
 
 
-let message = 'Hello world';
-alert(message);
+
+## [markdown-it-ins](https://github.com/markdown-it/markdown-it-ins)
+
+++this is inserted++
+
+## [markdown-it-mark](https://github.com/markdown-it/markdown-it-mark)
+
+==Oh hi, Mark.==
+
+## [markdown-it-sub](https://github.com/markdown-it/markdown-it-sub)
+
+C~7~H~14~O~2~
+
+## [markdown-it-sup](https://github.com/markdown-it/markdown-it-sup)
+
+Friday the 13^th^
+
+## [markdown-it-task-lists](https://github.com/revin/markdown-it-task-lists)
+
+- [ ] Homework
+- [x] Procrastinating
+
+## [markdown-it-toc-done-right](https://github.com/nagaozen/markdown-it-toc-done-right)
+
+[toc]
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+    Subsequent paragraphs are indented to show that they
+belong to the previous footnote.
 
 
-## Inline code
+
 `
-
-
+export default {
+  component: {
+    VueMarkdownIt
+  },
+  data() {
+    return {
+      source: data
+    }
+  }
+}
 </script>
-
-<style>
-
-</style>
